@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>4ペルソナ別 スライド ビフォーアフター見本集</title>
+<style>
+  :root{
+    --panel:#ffffff;
+    --ink:#1a2233;
+    --muted:#5b6275;
+    --line:#e6e8f0;
+    --navy:#1a2233;
+    --orange:#e8772e;
+    --blue:#2f5fa8;
+    --soft:#fdf0d9;
+    --shadow:0 10px 40px rgba(20,24,60,.12);
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",YuGothic,Meiryo,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fdf6ee 0%,#ffffff 55%,#fdf0e2 100%);
+    line-height:1.7;
+    padding:32px 16px 90px;
+  }
+  .wrap{max-width:920px;margin:0 auto}
+  .card{background:var(--panel);border-radius:20px;box-shadow:var(--shadow);padding:40px 32px}
+  .eyebrow{display:inline-block;font-size:13px;letter-spacing:.12em;color:var(--blue);font-weight:700;background:var(--soft);padding:6px 14px;border-radius:999px;margin-bottom:18px}
+  h1{font-size:24px;line-height:1.4;margin:0 0 14px;color:var(--navy)}
+  .lead{color:var(--muted);font-size:14.5px;margin:0 0 6px}
+  .hr{height:1px;background:var(--line);margin:28px 0}
+
+  .notice{
+    background:#fff6e6;border:1.5px solid #f0c878;border-radius:10px;padding:12px 14px;
+    font-size:12.5px;color:#7a5a16;margin:18px 0 0;line-height:1.6;
+  }
+
+  .persona{margin:0 0 46px}
+  .persona:last-child{margin-bottom:0}
+  .pHead{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+  .pHead .pNum{
+    flex:none;width:30px;height:30px;border-radius:50%;background:var(--navy);color:#fff;
+    font-size:13px;font-weight:800;display:grid;place-items:center;
+  }
+  .pHead .pName{font-size:16.5px;font-weight:800;color:var(--navy)}
+  .pHead .pTag{font-size:12px;color:var(--muted);font-weight:400;margin-left:2px}
+  .pWall{
+    display:inline-block;font-size:11.5px;font-weight:700;color:var(--orange);
+    background:var(--soft);border-radius:999px;padding:3px 10px;margin:6px 0 18px;
+  }
+
+  .compare{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:stretch}
+  .arrow{display:flex;align-items:center;justify-content:center;color:var(--orange);font-size:22px;font-weight:800}
+  .slideBox{border-radius:12px;overflow:hidden;border:1px solid var(--line)}
+  .slideLabel{
+    font-size:11.5px;font-weight:800;padding:7px 12px;letter-spacing:.04em;
+  }
+  .slideLabel.before{background:#eceef4;color:#6a6f85}
+  .slideLabel.after{background:var(--navy);color:#fff}
+  .mockSlide{aspect-ratio:16/9;padding:14px;position:relative;overflow:hidden}
+
+  /* --- Before mock styles (バラバラ・統一感なし) --- */
+  .mockSlide.b1{background:#fffdf5}
+  .mockSlide.b1 .t1{font-family:"Comic Sans MS",cursive;color:#d8336b;font-size:13px;font-weight:700}
+  .mockSlide.b1 .t2{font-family:Georgia,serif;color:#2e7d32;font-size:10px;margin-top:8px}
+  .mockSlide.b1 .t3{font-family:Impact,sans-serif;color:#1565c0;font-size:9px;margin-top:6px;text-decoration:underline}
+  .mockSlide.b1 .box{background:#ffe082;border:2px dashed #fb8c00;border-radius:4px;padding:4px 6px;font-size:8px;display:inline-block;margin-top:10px;color:#5d4037}
+
+  .mockSlide.b2{background:#fff}
+  .mockSlide.b2 .dense{font-size:6.3px;line-height:1.5;color:#333;font-family:monospace}
+  .mockSlide.b2 .dense b{color:#000}
+
+  .mockSlide.b3{background:#f4f4f4;display:flex;flex-direction:column;gap:6px;justify-content:center}
+  .mockSlide.b3 .row{display:flex;gap:6px}
+  .mockSlide.b3 .chip{flex:1;height:22px;border-radius:3px}
+  .mockSlide.b3 .c1{background:#ffcdd2}
+  .mockSlide.b3 .c2{background:#c8e6c9}
+  .mockSlide.b3 .c3{background:#bbdefb}
+  .mockSlide.b3 .c4{background:#fff9c4}
+  .mockSlide.b3 .note{font-size:7px;color:#888;text-align:center;margin-top:4px}
+
+  .mockSlide.b4{background:#fff}
+  .mockSlide.b4 ul{margin:6px 0 0 14px;padding:0;font-size:7.5px;color:#444;line-height:1.7}
+  .mockSlide.b4 .t1{font-size:11px;font-weight:700;color:#222}
+
+  /* --- After mock styles（ブランド統一・型化済み） --- */
+  .mockSlide.a1{background:var(--navy);display:flex;flex-direction:column;justify-content:center}
+  .mockSlide.a1 .logo{position:absolute;top:8px;right:10px;width:34px;height:8px;background:var(--blue);border-radius:3px;opacity:.8}
+  .mockSlide.a1 .t1{color:#fff;font-size:13px;font-weight:800}
+  .mockSlide.a1 .t2{color:var(--orange);font-size:9.5px;font-weight:700;margin-top:6px}
+  .mockSlide.a1 .bar{width:40px;height:3px;background:var(--orange);border-radius:2px;margin-top:10px}
+
+  .mockSlide.a2{background:#fff;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
+  .mockSlide.a2 .logo{position:absolute;top:8px;right:10px;width:34px;height:8px;background:var(--blue);border-radius:3px;opacity:.6}
+  .mockSlide.a2 .t1{font-size:13px;font-weight:800;color:var(--navy)}
+  .mockSlide.a2 .t2{font-size:9px;color:var(--orange);font-weight:700;margin-top:8px}
+  .mockSlide.a2 .icon{width:26px;height:26px;border-radius:50%;background:var(--soft);margin-top:10px;display:grid;place-items:center;font-size:13px}
+
+  .mockSlide.a3{background:#fff;display:flex;flex-direction:column;justify-content:center;gap:6px}
+  .mockSlide.a3 .logo{position:absolute;top:6px;right:8px;width:30px;height:7px;background:var(--blue);border-radius:3px;opacity:.6}
+  .mockSlide.a3 .row{display:flex;gap:6px}
+  .mockSlide.a3 .card{flex:1;background:var(--soft);border-radius:6px;padding:6px;text-align:center}
+  .mockSlide.a3 .card .n{color:var(--orange);font-weight:800;font-size:11px}
+  .mockSlide.a3 .card .l{font-size:6px;color:var(--navy);margin-top:2px}
+
+  .mockSlide.a4{background:#fff;display:flex;flex-direction:column;justify-content:center}
+  .mockSlide.a4 .logo{position:absolute;top:8px;right:10px;width:30px;height:7px;background:var(--blue);border-radius:3px;opacity:.6}
+  .mockSlide.a4 .t1{font-size:11.5px;font-weight:800;color:var(--navy)}
+  .mockSlide.a4 .barRow{display:flex;align-items:flex-end;gap:5px;margin-top:10px;height:30px}
+  .mockSlide.a4 .barRow .bb{width:10px;background:var(--blue);border-radius:2px 2px 0 0}
+  .mockSlide.a4 .barRow .bb.hi{background:var(--orange)}
+  .mockSlide.a4 .t2{font-size:7px;color:var(--muted);margin-top:6px}
+
+  .pointBox{
+    background:var(--soft);border-radius:10px;padding:12px 14px;font-size:12.5px;color:#5d4a2a;margin-top:14px;
+  }
+  .pointBox b{color:var(--navy)}
+
+  .faq{margin-top:40px;border-top:1px dashed var(--line);padding-top:20px}
+  .faq h2{font-size:16px;margin:0 0 12px;color:var(--navy)}
+  .faqItem{background:var(--soft);border-radius:10px;padding:12px 14px;margin-bottom:10px;font-size:13px}
+  .faqItem .q{font-weight:800;color:var(--ink);margin-bottom:4px}
+  .faqItem .a{color:var(--muted)}
+
+  .closing{margin-top:30px;text-align:center;color:var(--muted);font-size:14px;border-top:1px dashed var(--line);padding-top:22px}
+  .closing .big{color:var(--navy);font-weight:800;font-size:16px;display:block;margin:6px 0}
+  .madeby{margin-top:20px;text-align:center;font-size:12.5px;color:#9aa0b5}
+
+  @media(max-width:640px){
+    .card{padding:26px 18px}
+    h1{font-size:20px}
+    .compare{grid-template-columns:1fr;}
+    .arrow{transform:rotate(90deg);padding:4px 0}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card">
+    <span class="eyebrow">なかしー｜ClaudeCode × スライド作成</span>
+    <h1>4ペルソナ別<br>スライド ビフォーアフター見本集</h1>
+    <p class="lead">「ありがちな残念な1枚」と「ClaudeCodeで型化した1枚」を、4つの場面（営業提案／セミナー／SNS／ピッチ）ごとに並べました。理屈より先に、仕上がりのイメージをそのまま見てください。</p>
+
+    <div class="notice">⚠️ ここに並んでいるのは実際のスライド画像ではなく、レイアウト・配色の違いを伝えるための簡易見本（モックアップ）です。実物はClaudeCodeでご自身の内容に合わせて作成します。</div>
+
+    <div class="hr"></div>
+
+    <div class="persona">
+      <div class="pHead"><div class="pNum">1</div><div class="pName">営業・提案資料<span class="pTag">お客さん・取引先に出す提案書</span></div></div>
+      <div class="pWall">Aブランド・デザイン統一の壁</div>
+      <div class="compare">
+        <div class="slideBox">
+          <div class="slideLabel before">Before（ありがちな1枚）</div>
+          <div class="mockSlide b1">
+            <div class="t1">弊社サービスのご提案</div>
+            <div class="t2">課題解決のポイント</div>
+            <div class="t3">お問い合わせはこちら</div>
+            <div class="box">※ページごとに色とフォントが違う</div>
+          </div>
+        </div>
+        <div class="arrow">→</div>
+        <div class="slideBox">
+          <div class="slideLabel after">After（型化した1枚）</div>
+          <div class="mockSlide a1">
+            <div class="logo"></div>
+            <div class="t1">御社の〇〇課題を、3ステップで解決</div>
+            <div class="t2">提案の核心を1行で</div>
+            <div class="bar"></div>
+          </div>
+        </div>
+      </div>
+      <div class="pointBox"><b>変わったポイント：</b>ページごとに違っていた配色・フォントを1つの「型」に統一。見た目が変わるだけで、提案の説得力と信頼感が一段上がります。</div>
+    </div>
+
+    <div class="persona">
+      <div class="pHead"><div class="pNum">2</div><div class="pName">セミナー・講座資料<span class="pTag">自分の知見を教える講師業の人</span></div></div>
+      <div class="pWall">B構成・伝える力の壁</div>
+      <div class="compare">
+        <div class="slideBox">
+          <div class="slideLabel before">Before（ありがちな1枚）</div>
+          <div class="mockSlide b2">
+            <div class="dense">
+              <b>本日のテーマについて</b><br>
+              ・背景説明その1その1その1その1その1<br>
+              ・背景説明その2その2その2その2その2<br>
+              ・関連する事例Aについての詳細説明文<br>
+              ・関連する事例Bについての詳細説明文<br>
+              ・補足情報その1補足情報その2補足情報<br>
+              ・まとめると言いたいことはこういうこと
+            </div>
+          </div>
+        </div>
+        <div class="arrow">→</div>
+        <div class="slideBox">
+          <div class="slideLabel after">After（型化した1枚）</div>
+          <div class="mockSlide a2">
+            <div class="logo"></div>
+            <div class="icon">💡</div>
+            <div class="t1">伝えたいことは、結局これ1つ</div>
+            <div class="t2">1スライド・1メッセージ</div>
+          </div>
+        </div>
+      </div>
+      <div class="pointBox"><b>変わったポイント：</b>1枚に詰め込んでいた情報を「1スライド1メッセージ」に分解。聞き手が迷わず、講座全体の理解度も上がります。</div>
+    </div>
+
+    <div class="persona">
+      <div class="pHead"><div class="pNum">3</div><div class="pName">SNS用ビジュアルコンテンツ<span class="pTag">カルーセル画像などで発信している人</span></div></div>
+      <div class="pWall">C作業効率の壁</div>
+      <div class="compare">
+        <div class="slideBox">
+          <div class="slideLabel before">Before（ありがちな1枚）</div>
+          <div class="mockSlide b3">
+            <div class="row"><div class="chip c1"></div><div class="chip c2"></div></div>
+            <div class="row"><div class="chip c3"></div><div class="chip c4"></div></div>
+            <div class="note">毎回レイアウトをゼロから作って時間がかかる</div>
+          </div>
+        </div>
+        <div class="arrow">→</div>
+        <div class="slideBox">
+          <div class="slideLabel after">After（型化した1枚）</div>
+          <div class="mockSlide a3">
+            <div class="logo"></div>
+            <div class="row">
+              <div class="card"><div class="n">01</div><div class="l">ポイント</div></div>
+              <div class="card"><div class="n">02</div><div class="l">ポイント</div></div>
+              <div class="card"><div class="n">03</div><div class="l">ポイント</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pointBox"><b>変わったポイント：</b>カードレイアウトを「型」として固定し、内容だけ差し替えれば量産できる状態に。投稿1本あたりの作業時間が大きく減ります。</div>
+    </div>
+
+    <div class="persona">
+      <div class="pHead"><div class="pNum">4</div><div class="pName">ピッチ・資金調達資料<span class="pTag">投資家・金融機関向けに資料を出す人</span></div></div>
+      <div class="pWall">D活用範囲の壁（説得力・プロ感）</div>
+      <div class="compare">
+        <div class="slideBox">
+          <div class="slideLabel before">Before（ありがちな1枚）</div>
+          <div class="mockSlide b4">
+            <div class="t1">市場規模について</div>
+            <ul>
+              <li>市場は拡大していると思われる</li>
+              <li>競合は多いが差別化できる</li>
+              <li>今後も成長が見込まれる</li>
+            </ul>
+          </div>
+        </div>
+        <div class="arrow">→</div>
+        <div class="slideBox">
+          <div class="slideLabel after">After（型化した1枚）</div>
+          <div class="mockSlide a4">
+            <div class="logo"></div>
+            <div class="t1">市場規模は3年で2.4倍に拡大</div>
+            <div class="barRow">
+              <div class="bb" style="height:30%"></div>
+              <div class="bb" style="height:55%"></div>
+              <div class="bb hi" style="height:90%"></div>
+            </div>
+            <div class="t2">出典：〇〇調査（20XX年）</div>
+          </div>
+        </div>
+      </div>
+      <div class="pointBox"><b>変わったポイント：</b>感覚的な箇条書きを、数字とグラフで根拠のある1枚に。投資家・金融機関が見るのは「説得力」と「裏付け」です。</div>
+    </div>
+
+    <div class="faq">
+      <h2>よくある質問</h2>
+      <div class="faqItem">
+        <div class="q">Q. この見本通りのデザインをそのまま作ってもらえますか？</div>
+        <div class="a">A. ここでの配色・レイアウトはあくまで「考え方の見本」です。実際の制作では、あなたの業種やブランドに合わせてClaudeCodeと一緒に型を作っていきます。</div>
+      </div>
+      <div class="faqItem">
+        <div class="q">Q. 4つのうち自分に当てはまるものが複数ある場合は？</div>
+        <div class="a">A. 問題ありません。型の考え方（ブランド統一・1メッセージ・カード化・数字での裏付け）はどの場面にも組み合わせて使えます。</div>
+      </div>
+    </div>
+
+    <div class="closing">
+      「なんとなく残念」を、「なぜ良いのか言える」状態に変える。それがClaudeCodeでスライドを型化する一番の価値です。
+      <span class="big">非エンジニアが、非エンジニアと歩む。<br>わかったふりも、わからないままも、させない。</span>
+    </div>
+    <div class="madeby">― この見本も、非エンジニアの私が ClaudeCode で作りました ―</div>
+  </div>
+</div>
+</body>
+</html>
